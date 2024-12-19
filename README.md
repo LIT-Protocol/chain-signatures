@@ -1,4 +1,4 @@
-# Lit Protocol ChainSignatures example
+# Using Lit for Chain Signatures
 
 An example of how to use Lit Protocol's Automation to forward transactions from any source chain to any destination chain.
 
