@@ -1,66 +1,34 @@
-## Foundry
+# Chain Signatures EVM Contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains the Solidity contracts used for testing and demonstration purposes in the Lit Protocol's Chain Signatures package.
 
-Foundry consists of:
+## Contracts
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### StringStorage
+A simple contract used for testing and demonstration purposes. It allows:
+- Storing a string value
+- Retrieving the stored string
+- Emits events when the string is updated
 
-## Documentation
-
-https://book.getfoundry.sh/
+### TransactionEmitter
 
 ## Usage
+A contract designed to work with Lit Protocol's Automation package for cross-chain transaction forwarding. It:
+- Emits events containing transaction intent data
+- Enables the Lit Protocol to monitor and forward transactions between different EVM chains
+- Works in conjunction with the Automation package to facilitate cross-chain communication
 
-### Build
+## Development
 
+Build the contracts:
 ```shell
-$ forge build
+forge build
 ```
 
-### Test
-
+Run tests:
 ```shell
-$ forge test
+forge test
 ```
 
-### Format
 
-```shell
-$ forge fmt
-```
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
