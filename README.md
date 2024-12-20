@@ -1,19 +1,16 @@
 # Using Lit for Chain Signatures
 
-An example of how to use Lit Protocol's Automation to forward transactions from any source chain to any destination chain.
+The following is an example of how you can use the automation package from the Lit SDK to create and automate cross-chain transactions. This package gives you the ability to listen to events from any source chain and use it to trigger a transaction on your desired destination chain
 
 ## Introduction
 
-This example uses Lit Protocol's automation capabilities to listen for transaction request events on a source chain and
-forward/broadcast them in a destination chain.
+This example uses Lit to listen to custom 'transaction request' events on an origin chain and uses them to execute the specified transaction on your desired destination chain.
 
 We use the TransactionEmitter contract, deployed on the Base Sepolia chain, to listen for transaction
 requests.
-Then we use a Lit Automation to forward that same transaction in a different chain. In this case using Ethereum Sepolia
-chain as the destination chain.
+We then use the Lit Automation package to forward the transaction request to the specified destination chain. In this example we are using Ethereum Sepolia.
 
-Chains, contracts and transactions are all configurable or dynamic, as long as the automation script listens for the
-right events and has funds to pay for gas on the destination chain.
+The specific chains, contracts, and transaction events that you want to execute and listen for are fully customizable and dynamic and can be configured in the automation script that you create. Just make sure that you load your PKPs with native tokens from the destination chain to handle gas.
 
 ## How it works
 
@@ -48,7 +45,7 @@ constructs a transaction for the destination chain, and sends it to the target c
 - Node.js and npm installed
 - A Lit PKP funded with some Sepolia ETH, enough to pay for gas
 - An Ethereum private key, as an authorized signer of the PKP
-- If using Lit Network that require payment, a minted Capacity NFT usable by the PKP
+- If you are using a Lit Network that [requires payment](https://developer.litprotocol.com/paying-for-lit/overview) make sure that you have minted Capacity Credits and [delegated them](https://developer.litprotocol.com/paying-for-lit/delegating-credit) to your PKP to use
 
 ## Running
 
