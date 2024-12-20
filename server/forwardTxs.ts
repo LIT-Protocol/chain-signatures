@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import { Address, PKPInfo, StateMachine } from '@lit-protocol/automation';
 import { LIT_NETWORK as POSSIBLE_LIT_NETWORKS, LIT_EVM_CHAINS } from '@lit-protocol/constants';
+import { Address, PKPInfo, StateMachine } from '@lit-protocol/event-listener';
 
 // Dev: Build the contract ABI if it doesn't exist
 import * as TransactionEmitterABI from '../evm/out/TransactionEmitter.sol/TransactionEmitter.json';

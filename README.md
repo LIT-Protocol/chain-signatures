@@ -1,6 +1,6 @@
 # Using Lit for Chain Signatures
 
-The following is an example of how you can use the automation package from the Lit SDK to create and automate cross-chain transactions. This package gives you the ability to listen to events from any source chain and use it to trigger a transaction on your desired destination chain
+The following is an example of how you can use the `@lit-protocol/event-listener` package from the [Lit SDK](https://github.com/LIT-Protocol/js-sdk) to create and automate cross-chain transactions. This package gives you the ability to listen to events from any source chain and use it to trigger a transaction on your desired destination chain
 
 ## Introduction
 
@@ -8,9 +8,9 @@ This example uses Lit to listen to custom 'transaction request' events on an ori
 
 We use the TransactionEmitter contract, deployed on the Base Sepolia chain, to listen for transaction
 requests.
-We then use the Lit Automation package to forward the transaction request to the specified destination chain. In this example we are using Ethereum Sepolia.
+We then use the Lit event listener package to forward the transaction request to the specified destination chain. In this example we are using Ethereum Sepolia.
 
-The specific chains, contracts, and transaction events that you want to execute and listen for are fully customizable and dynamic and can be configured in the automation script that you create. Just make sure that you load your PKPs with native tokens from the destination chain to handle gas.
+The specific chains, contracts, and transaction events that you want to execute and listen for are fully customizable and dynamic and can be configured in the event listener script that you create. Just make sure that you load your PKPs with native tokens from the destination chain to handle gas.
 
 ## How it works
 
@@ -27,7 +27,7 @@ The TransactionIntentCreated event contains the following information:
 That is, all the necessary information to construct a transaction on the destination chain is included in the
 TransactionIntentCreated event.
 
-Then a Lit Protocol automation script listens for the TransactionIntentCreated event and decodes the transaction data,
+Then a Lit Protocol event listener script subscribes for the TransactionIntentCreated event and decodes the transaction data,
 constructs a transaction for the destination chain, and sends it to the target contract address.
 
 ## Project Structure
@@ -35,10 +35,10 @@ constructs a transaction for the destination chain, and sends it to the target c
 - evm: Contains the Solidity contracts used for the example.
     - StringStorage.sol: A simple contract that stores a string value.
     - TransactionEmitter.sol: A contract that emits TransactionIntentCreated events when a transaction is received.
-- server: Contains the automation script that listens for TransactionIntentCreated events and forwards them to the
+- server: Contains the event listener script that subscribes for TransactionIntentCreated events and forwards them to the
   target contract on the destination chain.
 - client: Contains the script that sends a transaction to the target contract on the destination chain using the source
-  chain's TransactionEmitter contract and, transitively, the automation script.
+  chain's TransactionEmitter contract and, transitively, the event listener script.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ cd client
 npm run dev
 ```
 
-The client script will print the new string and who updated it, which should be the Lit Automation PKP address
+The client script will print the new string and who updated it, which should be the Lit event listener PKP address
 ```
 ...
 StringUpdated event received:
