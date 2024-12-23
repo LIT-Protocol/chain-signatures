@@ -14,6 +14,8 @@ The specific chains, contracts, and transaction events that you want to execute 
 
 ## How it works
 
+![Chain Signatures](./chainSignatures.png)
+
 When a transaction request is received on the source chain, the TransactionEmitter contract emits a
 TransactionIntentCreated event.
 
